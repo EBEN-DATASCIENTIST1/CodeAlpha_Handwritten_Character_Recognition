@@ -1,61 +1,79 @@
-# Handwritten Character Recognition using CNN
+# Handwritten Digit Recognition Using CNN
 
-## CodeAlpha Machine Learning Internship — Task 3
+**CodeAlpha Machine Learning Internship — Task 3**
 
-### Project Overview
+## Overview
 
-This project uses a Convolutional Neural Network (CNN) to recognize handwritten digits from the MNIST dataset. The model classifies grayscale images into ten digit classes, from 0 to 9.
+This project uses a Convolutional Neural Network (CNN) to recognize handwritten digits from images. The model is trained and evaluated using the MNIST dataset, which contains grayscale images of digits from 0 to 9.
 
-### Dataset
+## Dataset
 
 - **Dataset:** MNIST
 - **Training images:** 60,000
 - **Testing images:** 10,000
 - **Image dimensions:** 28 × 28 pixels
-- **Classes:** 10 digits (0–9)
+- **Number of classes:** 10
 
-### Technologies Used
+## Methodology
+
+1. Load and explore the MNIST dataset.
+2. Visualize sample handwritten digits.
+3. Normalize pixel values to the range 0–1.
+4. Prepare image dimensions for CNN input.
+5. Build a CNN with convolutional, pooling, dense, and dropout layers.
+6. Train the model using early stopping.
+7. Evaluate test accuracy and loss.
+8. Analyze the classification report and confusion matrix.
+9. Visualize training curves and sample predictions.
+10. Save the trained model.
+
+## Model Architecture
+
+The CNN includes:
+
+- A convolutional layer with 32 filters and max pooling
+- A convolutional layer with 64 filters and max pooling
+- A flattening layer
+- A dense layer with 128 units
+- A dropout layer with a rate of 0.3
+- A softmax output layer with 10 units
+
+The model contains 225,034 parameters.
+
+## Results
+
+| Metric                   |     Result |
+| ------------------------ | ---------: |
+| Test Accuracy            | **99.21%** |
+| Test Loss                |     0.0250 |
+| Best Validation Accuracy |     99.35% |
+| Lowest Validation Loss   |     0.0288 |
+
+The model achieved consistently strong classification performance across all ten digit classes. Most test images were correctly classified.
+
+## Saved Model
+
+The trained model is saved as:
+
+`models/handwritten_digit_cnn.keras`
+
+## Technologies Used
 
 - Python
-- TensorFlow and Keras
+- TensorFlow/Keras
 - NumPy and Pandas
 - Matplotlib and Seaborn
 - Scikit-learn
 - Jupyter Notebook
 
-### Project Workflow
+## Repository Structure
 
-1. Load and explore the MNIST dataset.
-2. Visualize sample handwritten digits and class distribution.
-3. Normalize pixel values to the range 0–1.
-4. Reshape images for CNN input.
-5. Build and train a CNN using convolutional, pooling, dense, and dropout layers.
-6. Evaluate the model using test accuracy, classification report, and confusion matrix.
-7. Visualize training and validation accuracy and loss.
-8. Display sample predictions.
-9. Save the trained model.
+- `models/` — Saved CNN model
+- `notebook/` — Jupyter Notebook containing preprocessing, training, and evaluation
+- `README.md` — Project documentation
 
-### Model Performance
+## Conclusion
 
-- **Test accuracy:** 99.21%
-- **Test loss:** 0.0250
-
-The model achieved high classification performance across the ten digit classes. Sample predictions and the confusion matrix demonstrate that most handwritten digits are correctly recognized.
-
-### Saved Model
-
-The trained model is saved at:
-
-`models/handwritten_digit_cnn.keras`
-
-### How to Run
-
-1. Install the required Python packages: TensorFlow, NumPy, Pandas, Matplotlib, Seaborn, and Scikit-learn.
-2. Open `notebook/Handwritten_Character_Recognition.ipynb` in Jupyter Notebook.
-3. Run the notebook cells sequentially to reproduce the workflow.
-
-### Conclusion
-
-This project demonstrates how a CNN can learn visual features from handwritten digit images and achieve approximately 99% test accuracy on MNIST.
+This project demonstrates the use of CNNs for image classification. The model achieved **99.21% test accuracy** on MNIST, showing excellent performance on this handwritten digit recognition benchmark.
 
 **Internship:** CodeAlpha — Machine Learning
